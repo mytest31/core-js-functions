@@ -32,9 +32,9 @@ function getCurrentFunctionName() {
  *   getFunctionBody(hiHello) => "function hiHello() { console.log('hello world'); }"
  *
  */
-function getFunctionBody(/* func */) {
-  // const funcText = func === undefined ? '' : func.toString();
-  // return funcText;
+function getFunctionBody(func) {
+  const funcText = func === undefined ? '' : func.toString();
+  return funcText;
 }
 
 /**
@@ -51,11 +51,11 @@ function getFunctionBody(/* func */) {
  *  ]) => [0, 1, 2]
  *
  */
-function getArgumentsCount(funcs) {
-  return funcs.reduce((argCountArr, fn) => {
-    argCountArr.push(fn.length);
-    return argCountArr;
-  }, []);
+function getArgumentsCount(/* funcs */) {
+  // return funcs.reduce((argCountArr, fn) => {
+  //   argCountArr.push(fn.length);
+  //   return argCountArr;
+  // }, []);
 }
 
 /**
