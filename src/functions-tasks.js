@@ -18,7 +18,7 @@
  *
  */
 function getCurrentFunctionName() {
-  // return getCurrentFunctionName.name;
+  return getCurrentFunctionName.name;
 }
 
 /**
@@ -32,9 +32,9 @@ function getCurrentFunctionName() {
  *   getFunctionBody(hiHello) => "function hiHello() { console.log('hello world'); }"
  *
  */
-function getFunctionBody(func) {
-  const funcText = func === undefined ? '' : func.toString();
-  return funcText;
+function getFunctionBody(/* func */) {
+  // const funcText = func === undefined ? '' : func.toString();
+  // return funcText;
 }
 
 /**
