@@ -95,6 +95,10 @@ function getPowerFunction(exponent) {
  */
 function getPolynom(...args) {
   return function polynom(x) {
+    if (args.length === 0) {
+      return null;
+    }
+
     return args
       .toReversed()
       .reduce((y, coefficient, idx) => y + coefficient * x ** idx, 0);
