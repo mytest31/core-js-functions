@@ -18,7 +18,7 @@
  *
  */
 function getCurrentFunctionName() {
-  return getCurrentFunctionName.name;
+  // return getCurrentFunctionName.name;
 }
 
 /**
