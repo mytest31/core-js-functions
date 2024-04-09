@@ -143,20 +143,20 @@ function memoize(func) {
  * }, 2);
  * retryer() => 2
  */
-function retry(func, attempts) {
-  let attemptCounter = 0;
-  return function retryer() {
-    let result = null;
-    try {
-      result = func();
-    } catch {
-      if (attemptCounter <= attempts) {
-        result = retryer();
-        attemptCounter += 1;
-      }
-    }
-    return result;
-  };
+function retry(/* func, attempts */) {
+  // let attemptCounter = 0;
+  // return function retryer() {
+  //   let result = null;
+  //   try {
+  //     result = func();
+  //   } catch {
+  //     if (attemptCounter <= attempts) {
+  //       result = retryer();
+  //       attemptCounter += 1;
+  //     }
+  //   }
+  //   return result;
+  // };
 }
 
 /**
@@ -205,8 +205,8 @@ function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(/* fn, ...args1 */) {
-  // return fn.bind(null, ...args1);
+function partialUsingArguments(fn, ...args1) {
+  return fn.bind(null, ...args1);
 }
 
 /**
