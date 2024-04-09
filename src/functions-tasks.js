@@ -93,15 +93,15 @@ function getPowerFunction(exponent) {
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
-function getPolynom(...args) {
-  if (args.length === 0) {
-    return null;
-  }
-  return function polynom(x) {
-    return args
-      .toReversed()
-      .reduce((y, coefficient, idx) => y + coefficient * x ** idx, 0);
-  };
+function getPolynom(/* ...args */) {
+  // if (args.length === 0) {
+  //   return null;
+  // }
+  // return function polynom(x) {
+  //   return args
+  //     .toReversed()
+  //     .reduce((y, coefficient, idx) => y + coefficient * x ** idx, 0);
+  // };
 }
 
 /**
@@ -118,14 +118,14 @@ function getPolynom(...args) {
  *   ...
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
-function memoize(/* func */) {
-  // let fnResult = null;
-  // return function memoizedFunction() {
-  //   if (!fnResult) {
-  //     fnResult = func();
-  //   }
-  //   return fnResult;
-  // };
+function memoize(func) {
+  let fnResult = null;
+  return function memoizedFunction() {
+    if (!fnResult) {
+      fnResult = func();
+    }
+    return fnResult;
+  };
 }
 
 /**
