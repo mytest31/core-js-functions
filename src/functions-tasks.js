@@ -51,11 +51,11 @@ function getFunctionBody(func) {
  *  ]) => [0, 1, 2]
  *
  */
-function getArgumentsCount(/* funcs */) {
-  // return funcs.reduce((argCountArr, fn) => {
-  //   argCountArr.push(fn.length);
-  //   return argCountArr;
-  // }, []);
+function getArgumentsCount(funcs) {
+  return funcs.reduce((argCountArr, fn) => {
+    argCountArr.push(fn.length);
+    return argCountArr;
+  }, []);
 }
 
 /**
@@ -182,14 +182,14 @@ function retry(func, attempts) {
  * cos(3.141592653589793) ends
  *
  */
-function logger(func, logFunc) {
-  return function loggingWrapper(...args) {
-    const logString = `${func.name}(${JSON.stringify(args).slice(1, -1)}) `;
-    logFunc(`${logString}starts`);
-    const result = func(...args);
-    logFunc(`${logString}ends`);
-    return result;
-  };
+function logger(/* func, logFunc */) {
+  // return function loggingWrapper(...args) {
+  //   const logString = `${func.name}(${JSON.stringify(args).slice(1, -1)}) `;
+  //   logFunc(`${logString}starts`);
+  //   const result = func(...args);
+  //   logFunc(`${logString}ends`);
+  //   return result;
+  // };
 }
 
 /**
