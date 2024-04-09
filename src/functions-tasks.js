@@ -93,15 +93,12 @@ function getPowerFunction(exponent) {
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
-function getPolynom(/* ...args */) {
-  // if (args.length === 0) {
-  //   return null;
-  // }
-  // return function polynom(x) {
-  //   return args
-  //     .toReversed()
-  //     .reduce((y, coefficient, idx) => y + coefficient * x ** idx, 0);
-  // };
+function getPolynom(...args) {
+  return function polynom(x) {
+    return args
+      .toReversed()
+      .reduce((y, coefficient, idx) => y + coefficient * x ** idx, 0);
+  };
 }
 
 /**
