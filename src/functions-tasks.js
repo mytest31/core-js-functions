@@ -99,9 +99,11 @@ function getPolynom(...args) {
       return null;
     }
 
-    return args
-      .toReversed()
-      .reduce((y, coefficient, idx) => y + coefficient * x ** idx, 0);
+    let resultY = 0;
+    for (let i = 0; i < args.length; i += 1) {
+      resultY += args[i] * x ** (args.length - i - 1);
+    }
+    return resultY;
   };
 }
 
