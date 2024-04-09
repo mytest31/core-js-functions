@@ -118,14 +118,14 @@ function getPolynom(...args) {
  *   ...
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
-function memoize(func) {
-  let fnResult = null;
-  return function memoizedFunction() {
-    if (!fnResult) {
-      fnResult = func();
-    }
-    return fnResult;
-  };
+function memoize(/* func */) {
+  // let fnResult = null;
+  // return function memoizedFunction() {
+  //   if (!fnResult) {
+  //     fnResult = func();
+  //   }
+  //   return fnResult;
+  // };
 }
 
 /**
@@ -143,20 +143,20 @@ function memoize(func) {
  * }, 2);
  * retryer() => 2
  */
-function retry(/* func, attempts */) {
-  // let attemptCounter = 0;
-  // return function retryer() {
-  //   let result = null;
-  //   try {
-  //     result = func();
-  //   } catch {
-  //     if (attemptCounter <= attempts) {
-  //       result = retryer();
-  //       attemptCounter += 1;
-  //     }
-  //   }
-  //   return result;
-  // };
+function retry(func, attempts) {
+  let attemptCounter = 0;
+  return function retryer() {
+    let result = null;
+    try {
+      result = func();
+    } catch {
+      if (attemptCounter <= attempts) {
+        result = retryer();
+        attemptCounter += 1;
+      }
+    }
+    return result;
+  };
 }
 
 /**
