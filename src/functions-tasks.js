@@ -182,14 +182,14 @@ function retry(func, attempts) {
  * cos(3.141592653589793) ends
  *
  */
-function logger(/* func, logFunc */) {
-  // return function loggingWrapper(...args) {
-  //   const logString = `${func.name}(${JSON.stringify(args).slice(1, -1)}) `;
-  //   logFunc(`${logString}starts`);
-  //   const result = func(...args);
-  //   logFunc(`${logString}ends`);
-  //   return result;
-  // };
+function logger(func, logFunc) {
+  return function loggingWrapper(...args) {
+    const logString = `${func.name}(${JSON.stringify(args).slice(1, -1)}) `;
+    logFunc(`${logString}starts`);
+    const result = func(...args);
+    logFunc(`${logString}ends`);
+    return result;
+  };
 }
 
 /**
@@ -226,12 +226,12 @@ function partialUsingArguments(fn, ...args1) {
  *   getId4() => 7
  *   getId10() => 11
  */
-function getIdGeneratorFunction(startFrom) {
-  let counter = startFrom - 1;
-  return function generator() {
-    counter += 1;
-    return counter;
-  };
+function getIdGeneratorFunction(/* startFrom */) {
+  // let counter = startFrom - 1;
+  // return function generator() {
+  //   counter += 1;
+  //   return counter;
+  // };
 }
 
 module.exports = {
